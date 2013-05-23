@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence"
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-	http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
 	<persistence-unit name="AdvocatesOnline">
 	    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-		<class>com.advocatesOnline.entities.User</class>
-
+	    <class>com.advocatesOnline.entity.BaseEntity</class>
+		<class>com.advocatesOnline.entity.User</class>
+		<class>com.advocatesOnline.entity.Company</class>
+		<class>com.advocatesOnline.entity.Address</class>
+		
 		<properties>
 			<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
-		    <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/advocate_online"/>
+		    <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/advocates_online"/>
 			<property name="openjpa.ConnectionUserName" value="root"/>
 			<property name="openjpa.ConnectionPassword" value="root"/>
 			<property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+			<property name="openjpa.OrphanedKeyAction" value="log(Channel=Orphans, Level=INFO)"/>
 			
-			 <property name="openjpa.DynamicEnhancementAgent" value="false"/>
-			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>  
+			<!-- <property name="openjpa.DynamicEnhancementAgent" value="false"/>
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/> -->  
+			<!-- openjpa.jdbc.SynchrnozieMappings used to create openjpa sequence table -->
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+			<!-- <property name="openjpa.jdbc.SynchronizeMappings"
+ 				value="buildSchema(SchemaAction='dropDB,add')"/>  -->
+ 				
+ 				
+			<property name="openjpa.jdbc.DBDictionary"
+				value="org.apache.openjpa.jdbc.sql.MySQLDictionary(BlobTypeName=MEDIUMBLOB)" />
+			<property name="openjpa.jdbc.MappingDefaults"
+				value="jpa(ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict)" /> 				
 		</properties>
 	</persistence-unit>
 </persistence>
