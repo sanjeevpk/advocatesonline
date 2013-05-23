@@ -1,0 +1,21 @@
+
+Enhancer
+------------------------------------------------------------------------
+Main class - org.apache.openjpa.enhance.PCEnhancer
+
+-sq false
+-connectionDriverName com.mysql.jdbc.Driver
+-connectionURL jdbc:mysql://localhost/advocates_online
+-connectionUserName root
+-connectionPassword root
+
+-sql latest_updates_Today.sql
+
+D:\Workspaces\Juno\AdvocatesOnline\build\classes\com\advocatesOnline\entity\Company.class
+D:\Workspaces\Juno\AdvocatesOnline\build\classes\com\advocatesOnline\entity\User.class
+D:\Workspaces\Juno\AdvocatesOnline\build\classes\com\advocatesOnline\entity\Address.class
+
+
+Mapping Tool
+-------------------------------------------------------------------------
+Main class - org.apache.openjpa.jdbc.meta.MappingTool

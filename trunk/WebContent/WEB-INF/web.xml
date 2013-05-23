@@ -9,48 +9,38 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/spring-context.xml</param-value>
+  </context-param>
+  <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>/WEB-INF/log4j.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>
+  			org.springframework.web.context.ContextLoaderListener
+  		</listener-class>
+  </listener>
   <servlet>
-    <servlet-name>RegisterNewUser</servlet-name>
-    <servlet-class>com.advocatesOnline.servlet.RegisterNewUser</servlet-class>
+    <servlet-name>registerUser</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.RegisterUser</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RegisterNewUser</servlet-name>
-    <url-pattern>/RegisterNewUser</url-pattern>
+    <servlet-name>registerUser</servlet-name>
+    <url-pattern>/registerUser</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>SaveNewRegistration</servlet-name>
-    <servlet-class>com.advocatesOnline.servlet.SaveNewRegistration</servlet-class>
+    <servlet-name>userLogin</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.UserLogin</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SaveNewRegistration</servlet-name>
-    <url-pattern>/saveNewRegistration</url-pattern>
+    <servlet-name>userLogin</servlet-name>
+    <url-pattern>/userLogin</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>profileView</servlet-name>
-    <servlet-class>com.advocatesOnline.servlet.ProfileView</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>profileView</servlet-name>
-    <url-pattern>/profileView</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>testSave</servlet-name>
-    <servlet-class>com.advocatesOnline.servlet.TestSave</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>testSave</servlet-name>
-    <url-pattern>/testSave</url-pattern>
-  </servlet-mapping>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/view/errorPage500.jsp</location>
-  </error-page>
-  <error-page>
-    <error-code>503</error-code>
-    <location>/view/errorPage503.jsp</location>
-  </error-page>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/view/errorPage404.jsp</location>
-  </error-page>
 </web-app>
