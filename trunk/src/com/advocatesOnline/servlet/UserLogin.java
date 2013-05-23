@@ -108,14 +108,14 @@ public class UserLogin extends HttpServlet {
 			boolean login = loginService.validateAndLogin(user);
 			if(login){
 				System.out.println("logingIn -->>"+getServletContext().getContextPath()+"/user/UserMenuBar.jsp");
-				response.getWriter().write("Welcome <b>" +user.getName()+" to AdvocatesOnline.</b>");
+				response.getWriter().write("Success");//Welcome <b>" +user.getName()+" to AdvocatesOnline.</b>");
 				//RequestDispatcher dispatcher = request.getRequestDispatcher("/user/UserMenuBar.jsp");
 				//dispatcher.forward(request,response);
-				response.sendRedirect("NewFile.jsp");
+				//response.sendRedirect("NewFile.jsp");
 			}
 			else {
 				System.out.println("Invalid login...Please check user name and password.");
-				response.getWriter().write("Problem while logining into AdvocatesOnline. Please check your username or password.</br>If problem continous please write to admin@weblearning.com");
+				response.getWriter().write("Error");//Problem while logining into AdvocatesOnline. Please check your username or password.</br>If problem continous please write to admin@weblearning.com");
 			}
     		
 		}catch(Exception e){
