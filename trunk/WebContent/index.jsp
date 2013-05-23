@@ -124,6 +124,12 @@
 		    	 document.getElementById("emailTextField").focus();
 		    	 document.getElementById("passwordTextField").value = "";
 		    	 document.getElementById("error").innerHTML = "";
+		    	 if(xmlhttp.responseText == "Success"){
+		    		 window.location='NewFile.jsp';
+		    	 }
+		    	 else{
+		    		 document.getElementById("responseDiv").innerHTML = "Please check username/password.";
+		    	 }
 		     }
 		     else {
 		        alert("Error during AJAX call. Please try again");
