@@ -7,6 +7,7 @@
 package com.advocatesOnline.servlet;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -110,6 +111,9 @@ public class RegisterUser extends HttpServlet {
 			user.setGender(Gender.valueOf(gender.toString()));
 			user.setActive(true);
 			user.setUserType(UserType.valueOf(userType.toString()));
+			user.setCreatedBy(Long.toString(user.getId()));
+			user.setCreatedOn(new Date());
+			user.setCreatedTime(new Date());
 			
 			System.out.println("****************** Values from user object ***********");
 			System.out.println("Name -->>"+user.getName());

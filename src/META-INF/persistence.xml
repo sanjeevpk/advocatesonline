@@ -10,6 +10,8 @@
 		<class>com.advocatesOnline.entity.User</class>
 		<class>com.advocatesOnline.entity.Company</class>
 		<class>com.advocatesOnline.entity.Address</class>
+		<class>com.advocatesOnline.entity.Advocate</class>
+		<class>com.advocatesOnline.entity.Case</class>
 		
 		<properties>
 			<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>

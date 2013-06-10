@@ -1,6 +1,8 @@
 <!-- 
-/**
- *<pre>
+ * Copyright 2013. All rights reserved by AdvocatesOnline. 
+ * Do not copy or try to reproduce the source file.
+ * Please write to admin@advocatesonline.com for any communications.
+
  * Author           : Sanjeev Kulkarni
  * Project          : AdvocatesOnline
  * File             : index.jsp
@@ -12,8 +14,7 @@
  *<b> Sl No.  | Changed By                    | Date & Time          | Remarks                                                                     
  *-------------------------------------------------------------------------------------------------------------------------------------------------
  *     1      | Sanjeev Kulkarni              | 16-May-2013 11:05:17 AM      | Initial Version
- *</pre>
- */
+ *
  -->
 
 <!DOCTYPE html> 
@@ -125,10 +126,10 @@
 		    	 document.getElementById("passwordTextField").value = "";
 		    	 document.getElementById("error").innerHTML = "";
 		    	 if(xmlhttp.responseText == "Success"){
-		    		 window.location='NewFile.jsp';
+		    		 window.location='<%=getServletContext().getContextPath()%>/user/UserMenuBar.jsp';
 		    	 }
 		    	 else{
-		    		 document.getElementById("responseDiv").innerHTML = "Please check username/password.";
+		    		 document.getElementById("responseDiv").innerHTML = "Incorrect username or password.";
 		    	 }
 		     }
 		     else {
@@ -170,7 +171,8 @@
 			<div class="input">
 				<div class="inputtext"></div>
 				<div class="inputcontent">
-					<a href = "<%=getServletContext().getContextPath()%>/user/RegisterUser.jsp">New User? Click here to register for FREE!</a>
+					<a href = "<%=getServletContext().getContextPath()%>/user/RegisterUser.jsp">New Client? Click here to register for FREE!</a>
+					<br><a href = "<%=getServletContext().getContextPath()%>/advocate/RegisterAdvocate.jsp">New Advocate? Click here to register for FREE!</a>
 				</div>
 			</div>
 			

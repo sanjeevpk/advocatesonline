@@ -5,6 +5,7 @@
  */
 package com.advocatesOnline.dao;
 
+import com.advocatesOnline.entity.Advocate;
 import com.advocatesOnline.entity.User;
 
 /**
@@ -33,5 +34,17 @@ public interface RegistrationDao {
 	boolean saveNewRegistration(User user);
 	
 	boolean checkEmailUniqness(User user);
+
+	/**
+	 * @param advocate
+	 * @return
+	 */
+	boolean checkEmailUniqness(Advocate advocate);
+
+	/**
+	 * @param advocate
+	 * @return
+	 */
+	boolean saveNewAdvocateRegistration(Advocate advocate);
 
 }

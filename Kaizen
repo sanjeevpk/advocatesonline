@@ -1,0 +1,65 @@
+
+
+User Registration Module
+-------------------------------------------
+
+1> 		Date of Birth field should have a simple date chooser.
+
+2> 		Javascript Validations for mandatory fields.
+
+3> 		Sending form data without using parameters.
+
+4> 		Sending emails after registration for verification of the registration.
+
+5> 		Sending SMS to the mobile number provided for verification.
+
+6>		Server side getting parameters improvement.
+
+
+Advocates Registration Module
+-------------------------------------------
+
+7>		Date of Birth field should have a simple date chooser.
+
+8>		Javascript Validations for mandatory fields.
+
+9> 		Sending form data without using parameters.
+
+10> 	Sending email after registration for verification of the registration.
+
+11> 	Sending SMS to the mobile number provided for verification.
+
+12> 	Server side getting parameters improvement.
+
+13> 	New registration page has to be provided for advocates.
+
+14> 	Additional fields to be added like bar council registration number etc and a hint will be showed that 
+		we manually verify this registration number. After verification is success an advocate is verified by 
+		AdvocatesOnline and we will give more weightage in search results to such an advocates. Also as a verified 
+		advocates are differentiated by a small verified by AdvocatesOnline icon in search results. Please note that
+		this verification is purely a manual process and it takes at least a month time in order to get verified icon.  
+
+15>				
+
+
+Login Module
+--------------------------------------------------
+
+16>		Login security mechanism implementation
+
+17>		Forgot password implementation
+
+18>		UI enhancement
+
+19> 	Server side code improvements
+
+
+User Module
+----------------------------------------------------
+
+20>		Password Change: 
+		
+		20.1>		Email should be sent after the password change has happened to the user in order to confirmation
+		20.2>		Form validations using ajax & UI enhancements
+
+

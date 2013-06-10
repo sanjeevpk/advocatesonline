@@ -35,6 +35,15 @@
     <url-pattern>/registerUser</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>registerAdvocate</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.RegisterAdvocate</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registerAdvocate</servlet-name>
+    <url-pattern>/registerAdvocate</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>userLogin</servlet-name>
     <servlet-class>com.advocatesOnline.servlet.UserLogin</servlet-class>
     <load-on-startup>1</load-on-startup>
@@ -42,5 +51,32 @@
   <servlet-mapping>
     <servlet-name>userLogin</servlet-name>
     <url-pattern>/userLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>newCase</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.NewCase</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>newCase</servlet-name>
+    <url-pattern>/newCase</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewCases</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.ViewCases</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewCases</servlet-name>
+    <url-pattern>/viewCases</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>changeUserPassword</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.ChangeUserPassword</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changeUserPassword</servlet-name>
+    <url-pattern>/changeUserPassword</url-pattern>
   </servlet-mapping>
 </web-app>
