@@ -47,6 +47,10 @@ public class Address extends BaseEntity{
 	@JoinColumn(name = "user")
 	private User user;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "advocate")
+	private Advocate advocate;
+	
 	@Column(name ="address_line1")
 	private String addressLine1;
 	
@@ -138,5 +142,13 @@ public class Address extends BaseEntity{
 
 	public void setLandmark(String landmark) {
 		this.landmark = landmark;
+	}
+
+	public Advocate getAdvocate() {
+		return advocate;
+	}
+
+	public void setAdvocate(Advocate advocate) {
+		this.advocate = advocate;
 	}
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.advocatesOnline.dao.RegistrationDao;
 import com.advocatesOnline.entity.Address;
+import com.advocatesOnline.entity.Advocate;
 import com.advocatesOnline.entity.User;
 
 
@@ -103,6 +104,74 @@ public class RegistrationDaoImpl extends AbstractDaoImpl implements Registration
 		}
 		System.out.println(valid);
 		return valid;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.dao.RegistrationDao#checkEmailUniqness(com.advocatesOnline.entity.Advocate)
+	 */
+	@Override
+	public boolean checkEmailUniqness(Advocate advocate) {
+		boolean valid = false;
+		try{
+			
+			Query query = em.createQuery("select x from Advocate x WHERE x.email =?1 ");
+			query.setParameter(1, advocate.getEmail());
+			if(query.getResultList().size() > 0){
+				valid = true;
+			}else{
+				valid = false;
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		System.out.println(valid);
+		return valid;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.dao.RegistrationDao#saveNewAdvocateRegistration(com.advocatesOnline.entity.Advocate)
+	 */
+	@Override
+	public boolean saveNewAdvocateRegistration(Advocate advocate) {
+		
+		try{
+			em.getTransaction().begin();
+			List<Address> addressList = new ArrayList<>();
+			Address address = new Address();
+			address.setAddressLine1("#92/10, 7th B Cross,");
+			address.setAddressLine2("Jakkur Layout, Jakkur Post");
+			address.setCity("Bangalore");
+			address.setState("Karnataka");
+			address.setCountry("India");
+			address.setPincode("560064");
+			address.setLandmark("Nera B G National Public School");
+			addressList.add(address);
+			
+			Address address2 = new Address();
+			address2.setAddressLine1("Plot No 9 & 10,");
+			address2.setAddressLine2("Timber yard, Unkal Cross");
+			address2.setCity("Hubli");
+			address2.setState("Karnataka");
+			address2.setCountry("India");
+			address2.setPincode("580031");
+			address2.setLandmark("Unkal Railway Station");
+			addressList.add(address2);
+			
+			address.setAdvocate(advocate);
+			address2.setAdvocate(advocate);
+			
+			advocate.setAddress(addressList);
+			em.persist(address);
+			em.getTransaction().commit();
+			return true;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.toString());
+			return false;
+		}
 	}
 	
 }

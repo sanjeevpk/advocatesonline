@@ -1,6 +1,8 @@
-<!-- 
-/**
- *<pre>
+<!--
+ * Copyright 2013. All rights reserved by AdvocatesOnline. 
+ * Do not copy or try to reproduce the source file.
+ * Please write to admin@advocatesonline.com for any communications.
+
  * Author           : Sanjeev Kulkarni
  * Project          : AdvocatesOnline
  * File             : RegisterUser.jsp
@@ -12,12 +14,12 @@
  *<b> Sl No.  | Changed By                    | Date & Time          | Remarks                                                                     
  *-------------------------------------------------------------------------------------------------------------------------------------------------
  *     1      | Sanjeev Kulkarni              | 16-May-2013 11:05:17 AM      | Initial Version
- *</pre>
- */
+ *
+ *
  -->
  
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <html>
 	<head>
@@ -41,6 +43,7 @@
 	<title>AdvocatesOnline-Leading professional networking platform for Advocates</title>
 	
 	<link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
+	<script type="text/javascript" src="../resources/js/showhint.js"></script>
 	
 	<!-- <script type="text/javascript" src="resources/js/ajax.js"></script> -->
 	
@@ -251,6 +254,15 @@
 				<div class="inputtext">Email: </div>
 				<div class="inputcontent">
 					<input type="text" name="emailTextField" id="emailTextField" size="35"/>
+					<% 
+					String hooverMsg = "Please provide a valid email. Because you will be getting a verification email to this email Id." +
+			    			   " You need to confirm that email in order to use AdvocatesOnline.</p>" +
+			    			   " We will also be using this email address to communicate important" +
+			    			   " AdvocatesOnline product updates, any planned system maintenance periods" +
+			    			   " and critical status bulletins. " +
+			    			   " </br><b>We dont spam your mailbox nor we share your email.</b>";
+					 %>
+					<a href="#" class="hintanchor" onMouseover="showhint('<%=hooverMsg%>', this, event, '300px')">[?]</a>
 				</div>
 			</div>
 			

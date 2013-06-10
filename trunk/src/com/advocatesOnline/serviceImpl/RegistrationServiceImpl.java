@@ -8,6 +8,7 @@ package com.advocatesOnline.serviceImpl;
 import org.springframework.stereotype.Service;
 
 import com.advocatesOnline.dao.DaoFactory;
+import com.advocatesOnline.entity.Advocate;
 import com.advocatesOnline.entity.User;
 import com.advocatesOnline.service.RegistrationService;
 
@@ -51,6 +52,28 @@ public class RegistrationServiceImpl implements RegistrationService{
 	public boolean checkEmailUniqness(User user) {
 		boolean valid = DaoFactory.getRegistrationDao().checkEmailUniqness(user);
 		return valid;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.RegistrationService#checkEmailUniqness(com.advocatesOnline.entity.Advocate)
+	 */
+	@Override
+	public boolean checkEmailUniqness(Advocate advocate) {
+		boolean valid = DaoFactory.getRegistrationDao().checkEmailUniqness(advocate);
+		return valid;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.RegistrationService#saveNewAdvocateRegistration(com.advocatesOnline.entity.Advocate)
+	 */
+	@Override
+	public boolean saveNewAdvocateRegistration(Advocate advocate) {
+		boolean saved = DaoFactory.getRegistrationDao().saveNewAdvocateRegistration(advocate);//registrationDao.saveNewRegistration(user);
+		if(saved){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

@@ -6,8 +6,10 @@
 
 package com.advocatesOnline.dao;
 
+import com.advocatesOnline.daoImpl.CaseDaoImpl;
 import com.advocatesOnline.daoImpl.LoginDaoImpl;
 import com.advocatesOnline.daoImpl.RegistrationDaoImpl;
+import com.advocatesOnline.daoImpl.UserDaoImpl;
 
 
 /**
@@ -21,7 +23,7 @@ import com.advocatesOnline.daoImpl.RegistrationDaoImpl;
  *
  *<b>Revision History</b>
  *-------------------------------------------------------------------------------------------------------------------------------------------------
- *<b> Sl No.  | Changed By                    | Date & Time          | Remarks                                                                     
+ *<b> Sl No.  | Changed By                    | Date & Time          		| Remarks                                                                     
  *-------------------------------------------------------------------------------------------------------------------------------------------------
  *     1      | Sanjeev Kulkarni              | 16-May-2013 2:49:10 PM      | Initial Version
  *</pre>
@@ -38,5 +40,14 @@ public class DaoFactory {
 		LoginDao loginDao = new LoginDaoImpl();
 		return loginDao;
 	}
-
+	
+	public static CaseDao getCaseDao(){
+		CaseDao caseDao = new CaseDaoImpl();
+		return caseDao;
+	}
+	
+	public static UserDao getUserDao(){
+		UserDao userDao = new UserDaoImpl();
+		return userDao;
+	}
 }
