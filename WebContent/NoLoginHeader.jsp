@@ -47,6 +47,7 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 		<script type="text/javascript" src="resources/js/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="resources/js/ddsmoothmenuMainSite.js"></script>
+		<script type="text/javascript" src="resources/js/ajaxBasicScript.js"></script>
 		<script type="text/javascript">
 			
 			ddsmoothmenu.init({
@@ -84,10 +85,10 @@
 						<img src="images/Hungup.png" height="20px" width="20px">9742708244
 					</div></div>-->
 					<div class="topLeftContent">
-						<img src="resources/image/AdvocatesOnline.png" height="120px" width="120px">&nbsp;
+						<img src="resources/image/AdvocatesOnline1.png" height="120px" width="120px">&nbsp;
 					</div>
 					<div class="topCenterContent">
-						You are a <a href="<%=getServletContext().getContextPath()%>/user/RegisterUser.jsp"><b>Client?</b></a> or an <a href="<%= getServletContext().getContextPath()%>/advocate/RegisterAdvocate.jsp"><b>Advocate?</b></a>
+						You are a <a href="<%=getServletContext().getContextPath()%>/RegisterUser.jsp"><b>Client?</b></a> or an <a href="<%= getServletContext().getContextPath()%>/RegisterAdvocate.jsp"><b>Advocate?</b></a>
 					</div>	
 				</div>
 				
@@ -137,10 +138,10 @@
 						<a href="#"><b>Join Now</b></a>
 					  <ul>
 						  <li>
-						  	<a href="<%= getServletContext().getContextPath()%>/user/RegisterUser.jsp">Clients</a>
+						  	<a href="<%= getServletContext().getContextPath()%>/RegisterUser.jsp">Clients</a>
 						  </li>
 						  <li>
-						  	<a href="<%= getServletContext().getContextPath()%>/advocate/RegisterAdvocate.jsp">Advocates</a>
+						  	<a href="<%= getServletContext().getContextPath()%>/RegisterAdvocate.jsp">Advocates</a>
 						  </li>
 					  </ul>
 					</li>

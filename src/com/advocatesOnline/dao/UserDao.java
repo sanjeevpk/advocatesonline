@@ -5,6 +5,8 @@
  */
 package com.advocatesOnline.dao;
 
+import com.advocatesOnline.entity.User;
+
 /**
  *<pre>
  * Author           : Sanjeev Kulkarni
@@ -33,5 +35,17 @@ public interface UserDao {
 	 */
 	boolean changeUserPassword(String userId, String oldPassword,
 			String newPassword, String confirmNewPassword);
+
+	/**
+	 * @param userId
+	 * @return
+	 */
+	User viewUserProfile(int userId);
+
+	/**
+	 * @param user
+	 * @return
+	 */
+	void logoutUser(User user);
 
 }

@@ -18,6 +18,10 @@
 
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="com.advocatesOnline.entity.User" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -41,12 +45,18 @@
 		<title>AdvocatesOnline-Leading professional networking platform for Advocates</title>
 		
 		<link rel="stylesheet" type="text/css" href="../resources/css/ddsmoothmenu.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/ddsmoothmenu.css" />
 		<link rel="stylesheet" type="text/css" href="../resources/css/ddsmoothmenu-v.css" />
 		<link rel="stylesheet" type="text/css" href="../resources/css/mainPageLayout.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/mainPageLayout.css" />
 		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 		<script type="text/javascript" src="../resources/js/jquery-1.8.2.js"></script>
+		<script type="text/javascript" src="resources/js/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="../resources/js/ddsmoothmenu.js"></script>
+		<script type="text/javascript" src="resources/js/ddsmoothmenu.js"></script>
+		<script type="text/javascript" src="../resources/js/ajaxBasicScript.js"></script>
+		<script type="text/javascript" src="resources/js/ajaxBasicScript.js"></script>
 		<script type="text/javascript">
 			
 			ddsmoothmenu.init({
@@ -75,19 +85,28 @@
 			<div id="header"> 
 				<div>
 					<div class="topRightContent" align="right" >
-						<img src="../resources/image/facebook.png" height="20px" width="20px">&nbsp; 
-						<img src="../resources/image/twitter.png" height="20px" width="20px">&nbsp;  
-						<img src="../resources/image/linkedin.png" height="20px" width="20px">&nbsp;
-						<img src="../resources/image/blogger.png" height="20px" width="20px">&nbsp;
+						<a href=""><img src="../resources/image/facebook.png" height="20px" width="20px"></a>&nbsp; 
+						<a href=""><img src="../resources/image/twitter.png" height="20px" width="20px"></a>&nbsp;  
+						<a href=""><img src="../resources/image/linkedin.png" height="20px" width="20px"></a>&nbsp;
+						<a href=""><img src="../resources/image/blogger.png" height="20px" width="20px"></a>&nbsp;
 					</div>
 					<!--<div class = "topRightContent" align="right">
 						<img src="images/Hungup.png" height="20px" width="20px">9742708244
 					</div></div>-->
 					<div class="topLeftContent">
-						<img src="../resources/image/AdvocatesOnline.png" height="120px" width="120px">&nbsp;
+						<img src="../resources/image/AdvocatesOnline1.png" height="120px" width="120px">&nbsp;
 					</div>
 					<div class="topCenterContent">
-						Are you a <b>Client?</b> or an <b>Advocate?</b>
+						Welcome <b>${sessionScope.USER_DETAILS.name }. </b> 
+						<c:if test="${ sessionScope.USER_DETAILS.lastLogonDate != null}">
+							Your last login was on : 
+							<fmt:setLocale value="en"/>
+							<fmt:setLocale value="en_US"/>
+							<c:set var="date" value="${sessionScope.USER_DETAILS.lastLogonDate }" />
+							<c:set var="time" value="${sessionScope.USER_DETAILS.lastLogonTime }" />
+							<fmt:formatDate type="date" value="${date}" />
+							<fmt:formatDate type="time" value="${time}" />
+						</c:if>
 					</div>	
 				</div>
 				
@@ -97,57 +116,60 @@
 			<div id="smoothmenu1" class="ddsmoothmenu">
 				<ul>
 					<li>
-						<a href="http://www.dynamicdrive.com"><b>Home</b></a>
+						<a href="<%=getServletContext().getContextPath() %>"><b>Home</b></a>
 					</li>
 					<li>
-						<a href="http://www.dynamicdrive.com"><b>Messages</b></a>
+						<a href="ViewMessages.jsp"><b>Messages</b></a>
 					  <ul>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Create new message</a>
+						  	<a href="NewMessage.jsp">Create new message</a>
 						  </li>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Inbox</a>
+						  	<a href="ViewMessages.jsp">Inbox</a>
 						  </li>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Archieved</a>
+						  	<a href="ArchievedMessages.jsp">Archieved</a>
 						  </li>
 					  </ul>
 					</li>
 					<li>
-						<a href="http://www.dynamicdrive.com"><b>Cases</b></a>
+						<a href="ViewCases.jsp"><b>Cases</b></a>
 					  <ul>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Post new case</a>
+						  	<a href="PostNewCase.jsp">Post new case</a>
 						  </li>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">View cases</a>
+						  	<a href="../viewCases">View cases</a>
 						  </li>
-						  <li>
-						  	<a href="http://www.dynamicdrive.com">Delete case</a>
-						  </li>
+						  <!-- <li>
+						  	<a href="DeleteCase.jsp">Delete case</a>
+						  </li> -->
 					  </ul>
 					</li>
 					<li>
-						<a href="http://www.dynamicdrive.com"><b>Profile</b></a>
+						<a href=""><b>Profile</b></a>
 					  <ul>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Edit profile</a>
+						  	<a href="../userProfile?view">Edit profile</a>
 						  </li>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">View profile</a>
+						  	<a href="">View profile</a>
 					  	</li>
 					  </ul>
 					</li>
 					<li>
-						<a href="http://www.dynamicdrive.com/style/"><b>Settings</b></a>
+						<a href=""><b>Settings</b></a>
 						<ul>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Preference</a>
+						  	<a href="">Preference</a>
 						  </li>
 						  <li>
-						  	<a href="http://www.dynamicdrive.com">Change password</a>
+						  	<a href="ChangeUserPassword.jsp">Change password</a>
 					  	</li>
 					  </ul>
+					</li>
+					<li>
+						<a href="../logoutUser?logout"><b>Logout</b></a>
 					</li>
 				</ul>
 				<br style="clear: left" />

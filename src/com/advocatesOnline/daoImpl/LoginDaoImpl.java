@@ -38,22 +38,18 @@ public class LoginDaoImpl extends AbstractDaoImpl implements LoginDao{
 	 * @see com.advocatesOnline.dao.LoginDao#validateAndLogin(com.advocatesOnline.entity.User)
 	 */
 	@Override
-	public boolean validateAndLogin(User user) {
-		boolean valid = false;
+	public User validateAndLogin(User user) {
+		Query query = null;
 		try{
 
-			Query query = em.createQuery("select x from User x WHERE x.email =?1 AND x.password =?2 ");
+			query = em.createQuery("select x from User x WHERE x.email =?1 AND x.password =?2 ");
 			query.setParameter(1, user.getEmail());
 			query.setParameter(2, user.getPassword());
-			if(query.getResultList().size() > 0){
-				valid = true;
-			}else{
-				valid = false;
-			}		
+					
 			}catch(Exception e){
 				e.printStackTrace();
 				System.out.println(e.toString());
 			}
-		return valid;
+		return (User)query.getSingleResult();
 	}
 }

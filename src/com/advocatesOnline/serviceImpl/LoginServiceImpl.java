@@ -35,19 +35,17 @@ public class LoginServiceImpl implements LoginService{
 	 * @see com.advocatesOnline.service.LoginService#validateAndLogin(com.advocatesOnline.entity.User)
 	 */
 	@Override
-	public boolean validateAndLogin(User user) {
-		
+	public User validateAndLogin(User user) {
+		User userDetails = null;
 		try{
-			boolean login = DaoFactory.getLoginDao().validateAndLogin(user);
-			
-			if(login){
-				return true;
-			}else{
-				return false;
-			}
+			userDetails = DaoFactory.getLoginDao().validateAndLogin(user);
 			
 		}catch(Exception e){
-			return false;
+			e.printStackTrace();
+			System.out.println(e);
 		}
+		if(userDetails != null)
+			return userDetails;
+		return null;
 	}
 }

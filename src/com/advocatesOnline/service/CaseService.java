@@ -40,5 +40,23 @@ public interface CaseService {
 	 * @return
 	 */
 	List<Case> getViewAllCases(String userId);
+
+	/**
+	 * @param caseId
+	 * @return
+	 */
+	Case getCase(String caseId);
+
+	/**
+	 * @param userCase
+	 * @return
+	 */
+	Case updateCase(Case userCase);
+
+	/**
+	 * @param caseIdInt
+	 * @return
+	 */
+	boolean deleteCase(int caseIdInt);
 	
 }

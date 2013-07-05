@@ -5,6 +5,11 @@ html, body {
 	font-family: Century Gothic, sans-serif;
 	font-size: 12px;
 }
+
+p{
+	padding: 5px;
+	margin: 5px;
+}
 			
 #header{
 	/*border:solid 1px #000000;*/
@@ -26,6 +31,16 @@ html, body {
   	color:white;
   	float:left;
 }
+
+#relativeFooter {
+  	Position: relative; /*absolute = stays at fixed position*/
+  	Width: 100%;
+ 	Bottom: 0;
+  	Height: 140px;  /* This value is the height of your footer */
+  	background-color:#000000;
+  	color:white;
+  	float:left;
+}
 			
 #page {
   	Min-height: 100%;  /* for all other browsers */
@@ -35,7 +50,7 @@ html, body {
 			
 .section{
 	float:left;
-	background: url("http://npimg2.bluestone.com/resources/themes/bluestone/images/dots-vertical.gif") repeat-y scroll right top transparent;
+	background: url("../image/dots-vertical.gif") repeat-y scroll right top transparent;
 	height: 140px;
 	width:220px;
 	font-weight:bold;
@@ -47,7 +62,7 @@ html, body {
 }
 			
 .content {
-	background: url("http://npimg2.bluestone.com/resources/themes/bluestone/images/dots-vertical.gif") repeat-y scroll right top transparent;
+	background: url("../image/dots-vertical.gif") repeat-y scroll right top transparent;
 	height: 211px;
 }
 
@@ -72,7 +87,7 @@ li{
     width:100px;
     height:100px;
     padding-right:10px;
-    marigin-left:10px;
+    margin-left:10px;
 }
 			
 .topCenterContent{
@@ -83,4 +98,165 @@ li{
     margin: 80px auto 0 500px;
 }
 
-			
+.spacer{clear:both; height:1px;}
+
+.error{
+	font-family: Century Gothic, sans-serif;
+	font-size: 12px;
+	font-weight: normal; 
+	color : red;
+	/*background-color: #FFDFDF;*/
+	margin-left: 152px;
+}
+
+.responsiveDiv{
+	font-family: Century Gothic, sans-serif;
+	font-size: 11px;
+	font-weight: normal; 
+	color : red;
+	/*background-color: #FFDFDF;*/
+	margin-left: 152px;
+}	
+		
+.signInRegisterSmallLink{
+	font-size: 11px;
+	text-decoration: none;
+}
+
+body{
+	font-family: Century Gothic, sans-serif;
+	font-size: 12px;	
+}
+
+.title{
+	font-family: Century Gothic, sans-serif;
+	font-size: 14px;
+	font-weight:bold;
+	margin-left:5px;
+	border-bottom:solid 1px #b7ddf2;
+	margin-bottom:20px;
+	margin-top:5px;
+	padding-bottom:5px;	   	
+	padding-right: 5px;	
+}
+
+.mainDiv{
+	border:1px solid;
+	width: 500px;
+	margin-left: auto ;
+	margin-right: auto ;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+
+.mainDiv800{
+	border:1px solid;
+	width: 800px;
+	margin-left: auto ;
+	margin-right: auto ;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+
+.mainDiv1000{
+	border:1px solid;
+	width: 1000px;
+	margin-left: auto ;
+	margin-right: auto ;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+
+
+.lable{
+	float:left;
+	width:150px;
+	text-align:right;
+	font-weight:bold;
+	margin-right:5px;
+}
+
+.contentRadio{
+	margin-bottom:10px;
+	width:100%;	
+}
+
+.contentText{
+	margin-bottom:10px;
+	width:100%;
+	size: 200px;
+}
+
+input {
+	padding: 1%;
+	font-family: Century Gothic, sans-serif;
+	font-size: 12px;	
+	border: 1px solid #000000;
+}
+
+select {
+	font-family: Century Gothic, sans-serif;
+	font-size: 12px;	
+	border: 1px solid #000000;
+}
+
+textarea {
+	/*
+	font-family: Century Gothic, sans-serif;
+	font-size: 12px;*/
+		
+	border: 1px solid #000000;
+}
+
+button{
+	background: url("img/button.png") no-repeat scroll 0 0 #000000;
+	color:#FFFFFF;
+	text-align:center;
+	width: 150px;
+	margin-right: 5px;
+	padding-right: 5px;
+	height: 30px;
+}
+
+.button1{
+	float:left;
+	margin-left:152px;
+	padding-left:5px;
+	padding-right:5px;
+	margin-right:5px;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.small{
+	color:#666666;
+	display:block;
+	font-size:11px;
+	font-weight:normal;
+	text-align:right;
+	width:140px;
+}
+.row{
+	height:40px;
+}
+
+.smallHyperLink{
+	color:#666666;
+	font-size:11px;
+	text-align:left;
+	text-decoration:none;
+	margin-left: 150px;
+	padding-top:10px;
+	margin-top:10px;
+}
+
+th{
+	background-color: black;
+    color: white;
+}
+
+li{
+	list-style-type: none;
+}

@@ -17,77 +17,21 @@
 -->
 
 
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="NoLoginHeader.jsp"></jsp:include>
 <div id="main">
 	
 	<style>
 		body{
-font-family: Century Gothic, sans-serif;
-font-size:13px;
-}
-p, h1, form, button{border:0; margin:0; padding:0;}
-.spacer{clear:both; height:1px;}
-/* ----------- My Form ----------- */
-.myform{
-margin:0 auto;
-#width:30%;
-align:center;
-padding:14px;
-}
+			font-family: Century Gothic, sans-serif;
+			font-size:13px;
+		}
 
-/* ----------- stylized ----------- */
-#stylized{
-#border:solid 1px #000000;
-background:#ffffff;
-}
-#stylized h1 {
-font-size:14px;
-font-weight:bold;
-margin-bottom:8px;
-}
-#stylized p{
-font-size:11px;
-color:#666666;
-margin-bottom:20px;
-border-bottom:solid 1px #b7ddf2;
-padding-bottom:10px;
-}
-#stylized label{
-display:block;
-font-weight:bold;
-text-align:left;
-#width:140px;
-float:left;
-}
-#stylized .small{
-color:#666666;
-display:block;
-font-size:11px;
-font-weight:normal;
-text-align:left;
-width:140px;
-}
-#stylized input{
-float:left;
-font-size:12px;
-padding:4px 2px;
-border:solid 1px #000000;
-#width:200px;
-margin:2px 0 20px 10px;
-}
-#stylized button{
-clear:both;
-margin-left:150px;
-width:125px;
-height:31px;
-background:#000000 url(img/button.png) no-repeat;
-text-align:center;
-line-height:31px;
-color:#FFFFFF;
-font-size:11px;
-font-weight:bold;
-}
-</style>
+		p, h1, form, button{
+			border:0; margin:0; padding:0;
+		}
+
+		
+	</style>
 		
 		<div style="width: 40%; padding-top: 15px; padding-left:10px; padding-right:5px; float: left; height: 450px; border: 1px white;">
 		<p>
@@ -106,7 +50,9 @@ font-weight:bold;
 			with them in a real time environment.
 		</p>
 		<br>
-		<a href="">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Signup</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learn more</a>
+		<a href="">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="<%=getServletContext().getContextPath()%>/RegisterUser.jsp">Signup</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">Learn more</a>
 		<br>
 		<br>
 		<b><img alt="advocates" src="resources/image/Boss.png">&nbsp;&nbsp;Advocates:</b><br><br>
@@ -117,7 +63,9 @@ font-weight:bold;
 			clients case details, court processing to store the final judgment of the case.
 		</p>
 		<br>
-		<a href="">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Signup</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Learn more</a>
+		<a href="AdvocatesLogin.jsp">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="<%=getServletContext().getContextPath()%>/RegisterAdvocate.jsp">Signup</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">Learn more</a>
 		<br>
 		</div>
 		<div style="border: 1px white; height: 100%; padding-top: 15px;" >

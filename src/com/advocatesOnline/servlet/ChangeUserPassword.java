@@ -80,17 +80,20 @@ public class ChangeUserPassword extends HttpServlet {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("USERID") != null ? (String)session.getAttribute("USERID") : "";
-		System.out.println("user Id-->> "+userId);
-		
-		boolean passwordChnaged = userService.chageUserPassword(userId, oldPassword, newPassword, confirmNewPassword);
-		if(passwordChnaged){
-			System.out.println("Password changed successfully.");
-			response.getWriter().write("Password has been changed successfully!");
+		User user = (User) (session.getAttribute("USER_DETAILS") != null ? session.getAttribute("USER_DETAILS") : null);
+		if(user != null && !user.equals("")){
+			System.out.println("user Id-->> "+user.getId());
 			
-		}else{
-			System.out.println("Password did not changed");
-			response.getWriter().write("Password has not been successful!");
+			boolean passwordChnaged = userService.chageUserPassword(String.valueOf(user.getId()), oldPassword, newPassword, confirmNewPassword);
+			if(passwordChnaged){
+				System.out.println("Password changed successfully.");
+				response.getWriter().write("Password has been changed successfully!");
+				
+			}else{
+				System.out.println("Password did not changed");
+				response.getWriter().write("Password change has not been successful!");
+			}
 		}
+		
 	}
 }

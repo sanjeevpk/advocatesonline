@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.advocatesOnline.dao.DaoFactory;
 import com.advocatesOnline.entity.Case;
+import com.advocatesOnline.entity.User;
 import com.advocatesOnline.service.UserService;
 
 /**
@@ -53,6 +54,23 @@ public class UserServiceImpl implements UserService{
 		if(changed)
 			return true;
 		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.UserService#viewUserProfile(java.lang.String)
+	 */
+	@Override
+	public User viewUserProfile(int userId) {
+		User user = DaoFactory.getUserDao().viewUserProfile(userId);
+		return user;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.UserService#logoutUser(com.advocatesOnline.entity.User)
+	 */
+	@Override
+	public void logoutUser(User user) {
+		DaoFactory.getUserDao().logoutUser(user);
 	}
 	
 }

@@ -12,6 +12,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 /**
  *<pre>
@@ -41,6 +42,7 @@ public class BaseEntity implements Serializable{
 	@Column(name = "updated_by")
 	private String updatedBy;
 	
+	@Version
 	@Column(name = "version")
 	private long version;
 	
@@ -58,7 +60,7 @@ public class BaseEntity implements Serializable{
 	
 	@Temporal(TemporalType.TIME)
 	@Column(name = "updated_time")
-	private Date updated_time;
+	private Date updatedTime;
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -108,11 +110,11 @@ public class BaseEntity implements Serializable{
 		this.createdTime = createdTime;
 	}
 
-	public Date getUpdated_time() {
-		return updated_time;
+	public Date getUpdatedTime() {
+		return updatedTime;
 	}
 
-	public void setUpdated_time(Date updated_time) {
-		this.updated_time = updated_time;
+	public void setUpdatedTime(Date updatedTime) {
+		this.updatedTime = updatedTime;
 	}
 }

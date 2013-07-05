@@ -7,18 +7,14 @@
 package com.advocatesOnline.servlet;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
@@ -109,11 +105,12 @@ public class UserLogin extends HttpServlet {
 			logger.debug("Password -->>"+user.getPassword());
 			logger.debug("User Type -->>"+user.getUserType());
 						
-			boolean login = loginService.validateAndLogin(user);
-			if(login){
+			User userDetails = loginService.validateAndLogin(user);
+			if(userDetails != null){
 				System.out.println("logingIn -->>"+getServletContext().getContextPath()+"/user/UserMenuBar.jsp");
+				userDetails.setLoggedIn(true);// For loggedin indication
 				HttpSession session = request.getSession();
-				session.setAttribute("USERID", "100");
+				session.setAttribute("USER_DETAILS", userDetails);
 				response.getWriter().write("Success");//Welcome <b>" +user.getName()+" to AdvocatesOnline.</b>");
 				//RequestDispatcher dispatcher = request.getRequestDispatcher("/user/UserMenuBar.jsp");
 				//dispatcher.forward(request,response);

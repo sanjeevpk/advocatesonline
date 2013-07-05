@@ -301,7 +301,7 @@
 			</div>
 			
 			<div class="input">
-				<div id="responseDiv"> 
+				<div id="responseDiv" class="responsiveDiv"> 
 				</div>
 				<div class="error" id="error" ></div>
 			</div>
