@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<title>
+		</title>
+		<script>
+			function getRadioSelected(){
+				var selectedGender;
+				var radios = document.getElementsByName("gender");
+				//alert(radios.length);
+				for (var i = 0; i < radios.length; i++) {       
+	        		if (radios[i].checked) {
+	            		//alert(radios[i].value);
+	            		selectedGender = radios[i].value;
+			            alert(selectedGender);
+	           		 	break;
+	        		}
+   	 			}
+			}
+		</script>
+	</head>
+	<body onload="getRadioSelected()">
+		<form method="post">
+			<input type="radio" name="gender" value="Male">Male<br>
+			<input type="radio" name="gender" value="Female">Female<br>
+			<input type="radio" name="gender" value="Transgender">Transgender<br>
+			<input type="submit" value="Submit" onclick="getRadioSelected()">
+		</form>
+	</body>
+</html>

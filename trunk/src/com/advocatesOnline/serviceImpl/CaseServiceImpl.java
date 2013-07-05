@@ -58,4 +58,31 @@ public class CaseServiceImpl implements CaseService{
 			return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.CaseService#getCase(java.lang.String)
+	 */
+	@Override
+	public Case getCase(String caseId) {
+		Case caseDetails = DaoFactory.getCaseDao().getCase(caseId);
+		return caseDetails;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.CaseService#updateCase(java.lang.String)
+	 */
+	@Override
+	public Case updateCase(Case caseDetails) {
+		Case case1 = DaoFactory.getCaseDao().updateCase(caseDetails);
+		return case1;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.CaseService#deleteCase(int)
+	 */
+	@Override
+	public boolean deleteCase(int caseIdInt) {
+		boolean deleted = DaoFactory.getCaseDao().deleteCase(caseIdInt);
+		return deleted;
+	}
+
 }

@@ -7,6 +7,7 @@
 package com.advocatesOnline.service;
 
 import com.advocatesOnline.entity.Case;
+import com.advocatesOnline.entity.User;
 
 /**
  *<pre>
@@ -42,5 +43,17 @@ public interface UserService {
 	 */
 	boolean chageUserPassword(String userId, String oldPassword,
 			String newPassword, String confirmNewPassword);
+
+	/**
+	 * @param userId
+	 * @return
+	 */
+	User viewUserProfile(int userId);
+
+	/**
+	 * @param user
+	 * @return
+	 */
+	void logoutUser(User user);
 
 }

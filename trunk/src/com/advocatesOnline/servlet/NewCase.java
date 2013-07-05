@@ -3,7 +3,6 @@ package com.advocatesOnline.servlet;
 import java.io.IOException;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.advocatesOnline.entity.Case;
+import com.advocatesOnline.entity.User;
 import com.advocatesOnline.service.CaseService;
 
 /**
@@ -67,17 +67,17 @@ public class NewCase extends HttpServlet {
 			String caseViewedBy = "";
 			
 			HttpSession session = request.getSession();
-			String userId = (String)session.getAttribute("USERID");
+			User user = (User)session.getAttribute("USER_DETAILS");
 			
-			caseTitle = request.getParameter("caseTitleTextField") != null ? request.getParameter("caseTitleTextField") : "";
+			caseTitle = request.getParameter("title") != null ? request.getParameter("title") : "";
 					
-			caseCategory = request.getParameter("caseCategory") != null ? request.getParameter("caseCategory") : ""; 
+			caseCategory = request.getParameter("category") != null ? request.getParameter("category") : ""; 
 				
-			caseDescription = request.getParameter("caseDescriptionTextAreaField") != null ? request.getParameter("caseDescriptionTextAreaField") : "";
+			caseDescription = request.getParameter("description") != null ? request.getParameter("description") : "";
 			
-			caseSubmissionUserType = request.getParameter("userSubmitTypeRadioField") != null ? request.getParameter("userSubmitTypeRadioField") : "";
+			caseSubmissionUserType = request.getParameter("submittedAs") != null ? request.getParameter("submittedAs") : "";
 			
-			caseViewedBy = request.getParameter("userViewTypeRadioField") != null ? request.getParameter("userViewTypeRadioField") : "";
+			caseViewedBy = request.getParameter("caseViewedBy") != null ? request.getParameter("caseViewedBy") : "";
 				 
 			log("Log4j logging starting...");
 			
@@ -87,35 +87,34 @@ public class NewCase extends HttpServlet {
 			userCase.setDetailDescription(caseDescription);
 			
 			if(caseSubmissionUserType.equalsIgnoreCase("PARTICULAR_USER")){
-				userCase.setSubmittedBy(userId != null ? userId : "" );
+				userCase.setSubmittedBy(user != null ? String.valueOf(user.getId()) : "0" );
 			}else{
 				userCase.setSubmittedBy(caseSubmissionUserType);
 			}
 			
-			if(!caseViewedBy.equalsIgnoreCase("ALL_USERS")){
+			userCase.setViewedBy(caseViewedBy);
+			
+			/*if(!caseViewedBy.equalsIgnoreCase("ALL_USERS")){
 				
 				userCase.setViewedBy(userId != null ? userId : "" );
 			}else{
 				userCase.setViewedBy(caseViewedBy);
-			}
+			}*/
 			
-			userCase.setCreatedBy(userId);
+			userCase.setCreatedBy(user != null ? String.valueOf(user.getId()) : "0" );
 			userCase.setCreatedOn(new Date());
 			userCase.setCreatedTime(new Date());
 			
 			logger.debug("Values from Case object..");
 			logger.debug("Title -->> "+userCase.getTitle());
-			
-			RequestDispatcher dispatcher;
-			
+						
 			Case caseResult = caseService.saveCase(userCase);
 			if(caseResult != null){
-				System.out.println("Case object saved!");
-				dispatcher = request.getRequestDispatcher("/user/CaseSaved.jsp");
-				dispatcher.forward(request,response);
+				System.out.println("Case object saved! "+caseResult.getId()+" "+caseResult.getTitle());
+				session.setAttribute("Case", caseResult);
+				response.getWriter().write("Saved");
 			}else{
-				dispatcher = request.getRequestDispatcher("/user/CaseNotSaved.jsp");
-				dispatcher.forward(request,response);
+				response.getWriter().write("Error");
 			}
 				
     	}catch(Exception e){

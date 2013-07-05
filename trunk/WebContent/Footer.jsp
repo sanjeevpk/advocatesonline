@@ -30,8 +30,11 @@
 <div id="footer">
 <div>
      			<div>
-     				<section class = "section">Customer Care
+     				<section class = "section">
      					<ul>
+     						<li  style="font-size: 13px; margin-bottom:5px" >
+     							<b>Customer Care</b>
+     						</li>
      						<li>
      							<a class="footerHyperlink" href="#">Contact Us</a>
      						</li>
@@ -46,8 +49,11 @@
     			</div>	
     			
     			<div>
-     				<section class = "section">About Us
+     				<section class = "section">
 	       			<ul>
+	       				<li  style="font-size: 13px; margin-bottom:5px">
+	       					<b>About Us</b>
+	       				</li>
 	       				<li>
 	       					<a class="footerHyperlink" href="#">Who we are?</a>
 	       				</li>
@@ -65,8 +71,11 @@
      			</div>
      			
      			<div>
-     				<section class = "section">Education
+     				<section class = "section">
 	       			<ul>
+	       				<li  style="font-size: 13px; margin-bottom:5px">
+	       					<b>Education</b>
+	       				</li>
 	       				<li>
 	       					<a class="footerHyperlink" href="#">What is it?</a>
 	       				</li>
@@ -81,8 +90,11 @@
      			</div>
      			
      			<div>
-     				<section class = "section">Policies
+     				<section class = "section">
 	       			<ul>
+	       				<li  style="font-size: 13px; margin-bottom:5px">
+	       					<b>Policies</b>
+	       				</li>
 	       				<li>
 	       					<a class="footerHyperlink" href="#">Privacy Policy</a>
 	       				</li>
@@ -97,7 +109,7 @@
      			</div>
      		</div>
      		<div align="right" class = "copyright">
-     				Copyright &copy 2013. All rights reserved.	
+     				Copyright &copy; 2013 AdvocatesOnline. All rights reserved by AdvocatesOnline.	
      			</div>
      	</div>
        	

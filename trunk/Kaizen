@@ -53,13 +53,14 @@ Login Module
 
 19> 	Server side code improvements
 
+20>		Last login date & time display
 
 User Module
 ----------------------------------------------------
 
-20>		Password Change: 
+21>		Password Change: 
 		
-		20.1>		Email should be sent after the password change has happened to the user in order to confirmation
-		20.2>		Form validations using ajax & UI enhancements
+		21.1>		Email should be sent after the password change has happened to the user in order to confirmation
+		22.2>		Form validations using ajax & UI enhancements
 
 

@@ -16,77 +16,96 @@
  *
 -->
 
-<div id="footer">
-<div>
+	<style>
+		.FooterLinkText{
+			color: white;
+    		text-decoration: none;
+		}
+	</style>
+
+		<div id="relativeFooter">
+			<div>
      			<div>
-     				<section class = "section">Customer Care
-     					<ul>
-     						<li>
-     							Contact Us
+     				<section class = "section">
+     					<ul> 
+     						<li  style="font-size: 13px; margin-bottom:5px" >
+     							<b>Customer Care</b>
      						</li>
      						<li>
-     							Email Us
+     							<a class="FooterLinkText" href="">Contact Us</a>
      						</li>
      						<li>
-     							Call Us
+     							<a class="FooterLinkText" href="">Email Us</a>
+     						</li>
+     						<li>
+     							<a class="FooterLinkText" href="">Call Us</a>
      						</li>
      					</ul>
      				</section>
     			</div>	
     			
     			<div>
-     				<section class = "section">About Us
+     				<section class = "section">
 	       			<ul>
-	       				<li>
-	       					Who we are?
+	       				<li  style="font-size: 13px; margin-bottom:5px">
+	       					<b>About Us</b>
 	       				</li>
 	       				<li>
-	       					Management Team
+	       					<a class="FooterLinkText" href="#">Who we are?</a>
 	       				</li>
 	       				<li>
-	       					Vision
+	       					<a class="FooterLinkText" href="">Management Team</a>
 	       				</li>
 	       				<li>
-	       					Blog
+	       					<a class="FooterLinkText" href="">Vision</a>
+	       				</li>
+	       				<li>
+	       					<a class="FooterLinkText" href="">Blog</a>
 	       				</li>
 	       			</ul>
      				</section>
      			</div>
      			
      			<div>
-     				<section class = "section">Education
+     				<section class = "section">
 	       			<ul>
-	       				<li>
-	       					What is it?
+	       				<li  style="font-size: 13px; margin-bottom:5px">
+	       					<b>Education</b>
 	       				</li>
 	       				<li>
-	       					How to use it?
+	       					<a class="FooterLinkText" href="">What is it?</a>
 	       				</li>
 	       				<li>
-	       					How to get support?
+	       					<a class="FooterLinkText" href="">How to use it?</a>
+	       				</li>
+	       				<li>
+	       					<a class="FooterLinkText" href="">How to get support?</a>
 	       				</li>
 	       			</ul>
      				</section>
      			</div>
      			
      			<div>
-     				<section class = "section">Policies
+     				<section class = "section">
 	       			<ul>
-	       				<li>
-	       					Privacy Policy
+	       				<li  style="font-size: 13px; margin-bottom:5px">
+	       					<b>Policies</b>
 	       				</li>
 	       				<li>
-	       					Terms and Conditions
+	       					<a class="FooterLinkText" href="">Privacy Policy</a>
 	       				</li>
 	       				<li>
-	       					Pricing Policy
+	       					<a class="FooterLinkText" href="/">Terms and Conditions</a>
+	       				</li>
+	       				<li>
+	       					<a class="FooterLinkText" href="javascript:void(0)">Pricing Policy</a>
 	       				</li>
 	       			</ul>
      				</section>
      			</div>
      		</div>
      		<div align="right" class = "copyright">
-     				Copyright &copy 2013. All rights reserved.	
+     				Copyright &copy; 2013. All rights reserved<!--  by AdvocatesOnline.	 -->
      			</div>
      	</div>
        	

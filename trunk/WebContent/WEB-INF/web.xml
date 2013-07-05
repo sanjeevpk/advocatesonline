@@ -79,4 +79,34 @@
     <servlet-name>changeUserPassword</servlet-name>
     <url-pattern>/changeUserPassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>userProfile</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.UserProfile</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userProfile</servlet-name>
+    <url-pattern>/userProfile</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>logoutUser</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.UserLogout</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutUser</servlet-name>
+    <url-pattern>/logoutUser</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <exception-type>Exception</exception-type>
+    <location>/paymentError.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/InternalServerError.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/PageNotFoundError.jsp</location>
+  </error-page>
 </web-app>

@@ -19,6 +19,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.advocatesOnline.enums.Gender;
 import com.advocatesOnline.enums.UserType;
@@ -79,6 +81,14 @@ public class User extends BaseEntity{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user") 
 	private List<Address> address;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "last_logon_date")
+	private Date lastLogonDate;
+	
+	@Temporal(TemporalType.TIME)
+	@Column(name = "last_logon_time")
+	private Date lastLogonTime;
 
 	public int getId() {
 		return id;
@@ -158,5 +168,21 @@ public class User extends BaseEntity{
 
 	public void setAddress(List<Address> address) {
 		this.address = address;
+	}
+
+	public Date getLastLogonDate() {
+		return lastLogonDate;
+	}
+
+	public void setLastLogonDate(Date lastLogonDate) {
+		this.lastLogonDate = lastLogonDate;
+	}
+
+	public Date getLastLogonTime() {
+		return lastLogonTime;
+	}
+
+	public void setLastLogonTime(Date lastLogonTime) {
+		this.lastLogonTime = lastLogonTime;
 	}
 }

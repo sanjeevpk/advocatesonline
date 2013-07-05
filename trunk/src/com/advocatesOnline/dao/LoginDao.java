@@ -30,6 +30,6 @@ public interface LoginDao {
 	 * @param user
 	 * @return
 	 */
-	boolean validateAndLogin(User user);
+	User validateAndLogin(User user);
 
 }

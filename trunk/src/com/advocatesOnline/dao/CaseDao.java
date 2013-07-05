@@ -40,4 +40,22 @@ public interface CaseDao {
 	 */
 	List<Case> getAllCases(String userId);
 
+	/**
+	 * @param caseId
+	 * @return
+	 */
+	Case getCase(String caseId);
+
+	/**
+	 * @param caseDetails
+	 * @return
+	 */
+	Case updateCase(Case caseDetails);
+
+	/**
+	 * @param caseIdInt
+	 * @return
+	 */
+	boolean deleteCase(int caseIdInt);
+
 }
