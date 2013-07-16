@@ -260,3 +260,7 @@ th{
 li{
 	list-style-type: none;
 }
+
+.readOnly{
+	background-color: lavenderblush;
+}

@@ -6,10 +6,13 @@
 
 package com.advocatesOnline.dao;
 
+import java.io.InputStream;
+
 import com.advocatesOnline.daoImpl.CaseDaoImpl;
 import com.advocatesOnline.daoImpl.LoginDaoImpl;
 import com.advocatesOnline.daoImpl.RegistrationDaoImpl;
 import com.advocatesOnline.daoImpl.UserDaoImpl;
+import com.advocatesOnline.entity.User;
 
 
 /**

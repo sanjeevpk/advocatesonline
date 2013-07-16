@@ -8,6 +8,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>UserLogin.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -88,7 +89,25 @@
     <servlet-name>userProfile</servlet-name>
     <url-pattern>/userProfile</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
+    <servlet-name>uploadImage</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.UploadImage</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>uploadImage</servlet-name>
+    <url-pattern>/uploadImage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>displayImage</servlet-name>
+    <servlet-class>com.advocatesOnline.servlet.DisplayImage</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>displayImage</servlet-name>
+    <url-pattern>/displayImage</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>logoutUser</servlet-name>
     <servlet-class>com.advocatesOnline.servlet.UserLogout</servlet-class>
     <load-on-startup>1</load-on-startup>
