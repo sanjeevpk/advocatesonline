@@ -5,6 +5,8 @@
  */
 package com.advocatesOnline.dao;
 
+import java.io.InputStream;
+
 import com.advocatesOnline.entity.User;
 
 /**
@@ -47,5 +49,17 @@ public interface UserDao {
 	 * @return
 	 */
 	void logoutUser(User user);
+
+	/**
+	 * @param user
+	 * @param inputStream
+	 */
+	void uploadImage(User user, InputStream inputStream);
+
+	/**
+	 * @param imageId
+	 * @return 
+	 */
+	User displayImage(String imageId);
 
 }

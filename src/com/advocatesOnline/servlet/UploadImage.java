@@ -6,17 +6,20 @@
 
 package com.advocatesOnline.servlet;
 
-
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+
 
 import org.apache.log4j.Logger;
 import org.springframework.web.context.WebApplicationContext;
@@ -30,39 +33,40 @@ import com.advocatesOnline.service.UserService;
  * Author           : Sanjeev Kulkarni
  * Project          : AdvocatesOnline
  * Package          : com.advocatesOnline.servlet
- * File             : Profile.java
- * Created On       : 28-Jun-2013 2:19:57 PM
+ * File             : ViewCases.java
+ * Created On       : 08-Jul-2013 11:14:37 AM
  *
  *
  *<b>Revision History</b>
  *-------------------------------------------------------------------------------------------------------------------------------------------------
- *<b> Sl No.  | Changed By                    | Date & Time          | Remarks                                                                     
+ *<b> Sl No.  | Changed By                    | Date & Time          		 | Remarks                                                                     
  *-------------------------------------------------------------------------------------------------------------------------------------------------
- *     1      | Sanjeev Kulkarni              | 28-Jun-2013 2:19:57 PM      | Initial Version
+ *     1      | Sanjeev Kulkarni              | 08-Jul-2013 11:14:37 AM      | Initial Version
  *</pre>
  */
 
-
 /**
- * Servlet implementation class UserProfile
+ * Servlet implementation class UploadImage
  */
-@WebServlet("/UserProfile")
-public class UserProfile extends HttpServlet {
+@WebServlet("/UploadImage")
+@MultipartConfig(maxFileSize = 10177215)
+public class UploadImage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Logger logger = Logger.getLogger(UserProfile.class);
-	String className = UserProfile.class.getName();
+	Logger logger = Logger.getLogger(UploadImage.class);
 	UserService userService;
+	final static String className = UploadImage.class.getName();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserProfile() {
+    public UploadImage() {
         super();
     }
 
-	@Override
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
 	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
 		WebApplicationContext factory = WebApplicationContextUtils.getWebApplicationContext(config.getServletContext());
 		userService = factory.getBean(UserService.class);
 	}
@@ -78,46 +82,38 @@ public class UserProfile extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String method = " : doPost() :: ";
-		logger.info(className + method + "enter");
+		String methodName = " : doPost() ";
+		logger.info(className + methodName + "enter");
+		InputStream inputStream = null;
 		
 		try{
 			HttpSession session = request.getSession(false);
-			User userDetails = (User)session.getAttribute("USER_DETAILS");
-			if(userDetails != null){ 
-				int userId = userDetails.getId();
-				if(request.getParameter("edit") != null){
-					logger.info(className + method + "about to edit profile of "+userId);
-					User user = userService.viewUserProfile(userId);
-					if(user != null){
-						session.setAttribute("USER_DETAILS", user);
-						logger.info(className + method + "about to edit user profile");
-						//RequestDispatcher dispatcher = request.getRequestDispatcher("/user/EditUserProfile.jsp");
-						//dispatcher.forward(request, response);
-						response.sendRedirect(getServletContext().getContextPath()+"/user/EditUserProfile.jsp");
-						return;
-					}
-					
-				}else if(request.getParameter("view") != null){
-					logger.info(className + method + "about to view profile of" +userId);
-					User user = userService.viewUserProfile(userId);
-					if(user != null){
-						request.setAttribute("VIEW_USER_PROFILE", user);
-						logger.info(className + method + "about to display user profile");
-						RequestDispatcher dispatcher = request.getRequestDispatcher("/user/ViewUserProfile.jsp");
-						dispatcher.forward(request, response);
-					}
-				}else if(request.getParameter("update") != null){
-					logger.info(className + method + "about to update profile of" +userId);
-				}
-		}
-		
+			User user = (User)session.getAttribute("USER_DETAILS");
+			
+			Part filePart = request.getPart("photo");
+	        if (filePart != null && user != null) {
+	        	System.out.println(filePart.getName());
+	            System.out.println(filePart.getSize());
+	            System.out.println(filePart.getContentType());
+	            
+	            if(filePart.getSize() > 5952840){
+	            	response.getWriter().write("File size is too big to upload.");
+	            }
+	            else{
+	                inputStream = filePart.getInputStream();   
+		            userService.uploadImage(user,inputStream);
+		            request.setAttribute("USER", user);
+		            RequestDispatcher dispatcher = request.getRequestDispatcher("/user/EditUserProfile.jsp");
+		            dispatcher.forward(request, response);
+		            return;
+		        }
+	        }
+			
 		}catch(Exception e){
-			e.printStackTrace();
-			System.out.println(e.toString());
-			logger.info(className + method , e);
+			System.out.println(e);
+			logger.info(className + methodName, e);
 		}
-		logger.info(className + method + "leave");
+		logger.info(className + methodName + "leave");
 	}
 
 }

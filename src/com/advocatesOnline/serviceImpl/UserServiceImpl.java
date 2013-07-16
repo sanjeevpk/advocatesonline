@@ -5,6 +5,8 @@
  */
 package com.advocatesOnline.serviceImpl;
 
+import java.io.InputStream;
+
 import org.springframework.stereotype.Service;
 
 import com.advocatesOnline.dao.DaoFactory;
@@ -72,5 +74,21 @@ public class UserServiceImpl implements UserService{
 	public void logoutUser(User user) {
 		DaoFactory.getUserDao().logoutUser(user);
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.UserService#insertImage(com.advocatesOnline.entity.User, java.io.InputStream)
+	 */
+	@Override
+	public void uploadImage(User user, InputStream inputStream) {
+		DaoFactory.getUserDao().uploadImage(user, inputStream);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.service.UserService#displayImaage(java.lang.String)
+	 */
+	@Override
+	public User displayImaage(String imageId) {
+		User user = DaoFactory.getUserDao().displayImage(imageId);
+		return user;
+	}
 }

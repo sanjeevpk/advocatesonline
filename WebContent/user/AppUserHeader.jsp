@@ -150,10 +150,10 @@
 						<a href=""><b>Profile</b></a>
 					  <ul>
 						  <li>
-						  	<a href="../userProfile?view">Edit profile</a>
+						  	<a href="../userProfile?edit">Edit profile</a>
 						  </li>
 						  <li>
-						  	<a href="">View profile</a>
+						  	<a href="../userProfile?view">View profile</a>
 					  	</li>
 					  </ul>
 					</li>

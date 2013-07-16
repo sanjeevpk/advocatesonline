@@ -6,11 +6,14 @@
 
 package com.advocatesOnline.daoImpl;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 
 import javax.persistence.Query;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 import com.advocatesOnline.dao.UserDao;
@@ -131,5 +134,58 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
 		}
 		
 		logger.info(className + methodName + "leave");
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.dao.UserDao#uploadImage(com.advocatesOnline.entity.User, java.io.InputStream)
+	 */
+	@Override
+	public void uploadImage(User user, InputStream inputStream) {
+		String methodName = " : uploadImage() ";
+		logger.info(className + methodName + "enter");
+		
+		try{
+			final byte[] data = IOUtils.toByteArray(inputStream);
+			em.getTransaction().begin();
+			Query query = em.createQuery("update User x set x.photo = ?1 where x.id = ?2" );
+			query.setParameter(1, data);
+			query.setParameter(2, user.getId());
+			
+			int updated = query.executeUpdate();
+			if(updated > 0){
+				em.getTransaction().commit();
+			}
+			
+		}catch(Exception e){
+			System.out.println(e.toString());
+			logger.info(className + methodName + " Exception ", e);
+		}finally{
+			try {
+				inputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		logger.info(className + methodName + "leave");
+	}
+
+	/* (non-Javadoc)
+	 * @see com.advocatesOnline.dao.UserDao#displayImage(java.lang.String)
+	 */
+	@Override
+	public User displayImage(String userId) {
+		String methodName = " : displayImage() ";
+		logger.info(className + methodName + "enter");
+		Query query = null;
+		try{
+			query = em.createQuery("select x from User x where x.id = ?1");
+			query.setParameter(1, Integer.parseInt(userId));
+			
+		}catch(Exception e){
+			logger.info(className + methodName + "Exception", e);
+		}
+		
+		logger.info(className + methodName + "leave");
+		return (User)query.getSingleResult();
 	}
 }

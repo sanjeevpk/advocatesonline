@@ -6,6 +6,8 @@
 
 package com.advocatesOnline.service;
 
+import java.io.InputStream;
+
 import com.advocatesOnline.entity.Case;
 import com.advocatesOnline.entity.User;
 
@@ -55,5 +57,17 @@ public interface UserService {
 	 * @return
 	 */
 	void logoutUser(User user);
+
+	/**
+	 * @param user
+	 * @param inputStream
+	 */
+	void uploadImage(User user, InputStream inputStream);
+
+	/**
+	 * @param imageId
+	 * @return 
+	 */
+	User displayImaage(String imageId);
 
 }
