@@ -33,7 +33,7 @@
 							<img alt="Profile Picture" src="../resources/image/AdvocatesOnline1.png" height="150px" width="150px">	
 						</div>
 						<%
-		 			}else{
+		 			}else{ 
 		 				%>
 		 				<div style="height:150px; width:150px; background-color: linen; margin-left: 22px;">
 							<img alt="Profile Picture" src="../displayImage?id=<%=user.getId() %>" height="150px" width="150px">	
