@@ -102,10 +102,10 @@ public class DisplayImage extends HttpServlet {
 			    		output = new BufferedOutputStream(response.getOutputStream(), 1024000);
 			    		output.write(user.getPhoto());
 			    		request.setAttribute("USER", user);
-			    		RequestDispatcher dispatcher = request.getRequestDispatcher("/user/EditUserProfile.jsp");
-			    		dispatcher.forward(request, response);
+			    		//RequestDispatcher dispatcher = request.getRequestDispatcher("/user/EditUserProfile.jsp");
+			    		//dispatcher.forward(request, response);
 			    		//getServletContext().getRequestDispatcher("/user/EditUserProfile.jsp").forward(request, response);
-			    		return;
+			    		//return;
 			        } finally {
 			            close(output);
 			        }
