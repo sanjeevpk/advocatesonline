@@ -103,8 +103,9 @@ public class UploadImage extends HttpServlet {
 	                inputStream = filePart.getInputStream();   
 		            userService.uploadImage(user,inputStream);
 		            request.setAttribute("USER", user);
-		            RequestDispatcher dispatcher = request.getRequestDispatcher("/user/EditUserProfile.jsp");
-		            dispatcher.forward(request, response);
+		            //RequestDispatcher dispatcher = request.getRequestDispatcher("/user/EditUserProfile.jsp");
+		            //dispatcher.forward(request, response);
+		            response.sendRedirect("/AdvocatesOnline/user/EditUserProfile.jsp");//Need to check why getServletContxt() is giving NOP
 		            return;
 		        }
 	        }
