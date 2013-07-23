@@ -43,12 +43,12 @@
 		 			//String userId = String.valueOf(user.getId()) != null ? String.valueOf(user.getId()) : "0";
 		 		%>
 				
-				<form method="post" action="uploadImage" enctype="multipart/form-data">
+				<form method="post" action="../uploadImage" enctype="multipart/form-data">
 				<div style="margin-top: 5px; margin-left: 10px;">
 					<input type="file" name="photo" id="photo" style="border:none">
 				</div><br>
 				<div align="center">
-					<input type="submit" value="Upload">
+					<input type="submit" value="Change Picture">
 				</div>
 				
 				</form>
